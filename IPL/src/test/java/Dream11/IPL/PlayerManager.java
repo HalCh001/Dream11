@@ -130,7 +130,7 @@ public class PlayerManager extends BaseClass
 	}
 
 	//Choosing last Seven Players:	
-	public static Map<String, ArrayList<Object>> GetDetailsOfACombination(Map<String, ArrayList<Object>> Team, int NoOfBatsman, int NoOfBowler,int NoOfAL) throws IOException
+	public static Map<String, ArrayList<Object>> GetPlayerDetailsOfACombination(Map<String, ArrayList<Object>> Team, int NoOfBatsman, int NoOfBowler,int NoOfAL) throws IOException
 {
 	Map<String, ArrayList<Object>> Last3= new HashMap<String,ArrayList<Object>>();
 	Map<String, ArrayList<Object>> bat= new HashMap<String,ArrayList<Object>>();
@@ -189,7 +189,7 @@ public class PlayerManager extends BaseClass
 		for(int i=0; i<PossibleCombination.size();i++)
 		{
 			ArrayList<Integer> Combination=PossibleCombination.get(i);			
-			IntrimCombination= GetDetailsOfACombination(RemainingPlayers,Combination.get(1),Combination.get(2),Combination.get(0));
+			IntrimCombination= GetPlayerDetailsOfACombination(RemainingPlayers,Combination.get(1),Combination.get(2),Combination.get(0));
 			
 			double Cr1= getTotalCreditsOrPoints(FinalCombination,"Credit");
 			double Pr1= getTotalCreditsOrPoints(FinalCombination,"Point");

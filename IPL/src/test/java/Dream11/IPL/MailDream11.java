@@ -25,8 +25,6 @@ public class MailDream11 extends BaseClass
 	  //wb=InitiateDriver();
 
   }
-	
-	
 
 	@Test
 	public void MailMeDream11() throws IOException, MessagingException, InterruptedException 

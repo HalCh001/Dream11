@@ -254,7 +254,8 @@ public class RealTimeData extends Dream11Web
 		return Fullteam;
 
 	}
-	
+
+	//Get Team name with input as player name
 	private static String getTeamName(String PlayerName) throws IOException 
 	
 	{

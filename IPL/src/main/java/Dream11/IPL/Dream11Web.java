@@ -127,11 +127,7 @@ public class Dream11Web extends BaseClass
 	}
 	public static By ClickOnLiveTab() {
 		return By.xpath("//*[text()='Live']");
-	}
-	
-	
-	
-	
+	}	
 	public List<WebElement> getCredits() {
 		return Credits;
 	}
