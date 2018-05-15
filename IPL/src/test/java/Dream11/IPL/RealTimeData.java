@@ -39,8 +39,6 @@ public class RealTimeData extends Dream11Web
 		//Update Credit points:
 		HashMap<String, String[]> AllPlayersMap= new HashMap<String,String[]>();
 		
-		log.info("NO Of Games Next day: "+NoOfMatch);
-		
 		for(int iMatch=1; iMatch<=NoOfMatch; iMatch++)
 		{
 		wb=InitiateDriver();
@@ -236,7 +234,7 @@ public class RealTimeData extends Dream11Web
 		for(int i=0; i<11;i++ )
 		{
 			TeamName1= getTeamName(PlayersName.get(i).getText());
-			System.out.println("Team Name Found: "+TeamName1+" for Player: "+PlayersName.get(i).getText());
+			//System.out.println("Team Name Found: "+TeamName1+" for Player: "+PlayersName.get(i).getText());
 			Team1.put(PlayersName.get(i).getText(), PlayersPoint.get(i).getText());
 		}
 		
@@ -306,7 +304,7 @@ public class RealTimeData extends Dream11Web
 //Checking count of 'No of match fixes' on first go only		
 		Thread.sleep(1000);
 		if(iMatch==1){NoOfMatch= getNoOfMatchesNextDay(wb);}
-
+		log.info("NO Of Games Next day: "+NoOfMatch);
 		
 
 //Clicking on Selected Match:
