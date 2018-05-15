@@ -44,7 +44,7 @@ public class RealTimeData extends Dream11Web
 		for(int iMatch=1; iMatch<=NoOfMatch; iMatch++)
 		{
 		wb=InitiateDriver();
-		AllPlayersMap=getPlayersRealTimeCreditsFromDream11Site(wb,iMatch);		
+		AllPlayersMap=getPlayerCreditsFromDream11Site(wb,iMatch);		
 		updateExcelWithNextMatchPlayerCredits(AllPlayersMap);
 		wb.quit();
 		}
@@ -52,7 +52,7 @@ public class RealTimeData extends Dream11Web
 		
 		//Get Live player Points:
 		wb=InitiateDriver();
-		AllPlayersPoints= getPointsFromDream11Site(wb);
+		AllPlayersPoints= getPlaying11PointsFromDream11Site(wb);
 		int SheetNo=0;
 		int row=1;
 		
@@ -182,7 +182,7 @@ public class RealTimeData extends Dream11Web
 			}
 	
 	//Collecting Live points from Dream11.com:		
-	public static HashMap<String,HashMap<String,String>> getPointsFromDream11Site(WebDriver wb) throws InterruptedException, IOException
+	public static HashMap<String,HashMap<String,String>> getPlaying11PointsFromDream11Site(WebDriver wb) throws InterruptedException, IOException
 	{
 		wb.get("https://www.dream11.com/");
 		Dream11Web Objects= PageFactory.initElements(wb, Dream11Web.class);
@@ -195,27 +195,30 @@ public class RealTimeData extends Dream11Web
 		Objects.getLogin().click();
 		Objects.getSignin().click();
 		Objects.getEmail().sendKeys("chiranjit.halder@gmail.com");
-		Objects.getPassword().sendKeys("");
+		Objects.getPassword().sendKeys("sca1p2md3");
 		Objects.getSubmit().click();
 		
-		wt.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='My Contests']"))).click();
+		wt.until(ExpectedConditions.presenceOfElementLocated(Dream11Web.getMyContests())).click();
 		
 		try
 		{
-			wt.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Live']"))).click();			
-			WebElement Match= wb.findElement(By.xpath("//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]"));
-			Match.click();
+			wt.until(ExpectedConditions.presenceOfElementLocated(Dream11Web.ClickOnLiveTab())).click();
+			Thread.sleep(3000);
+			//WebElement Match= wb.findElement(Dream11Web.getMatch());
+			//Match.click();
+			List<WebElement> Contest1= wb.findElements(Dream11Web.getContests());
+			Contest1.get(0).click();
 		}
 	catch(Exception e)
 		{
-			wt.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Results']"))).click();
+			wt.until(ExpectedConditions.presenceOfElementLocated(Dream11Web.ClickOnResultsTab())).click();
 			Thread.sleep(3000);
-			List<WebElement> Contest1= wb.findElements(By.xpath("//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]"));
+			List<WebElement> Contest1= wb.findElements(Dream11Web.getContests());
 			Contest1.get(0).click();
 		}
 
 		Thread.sleep(5000);		
-		Objects.getSelectContest().click();
+		Objects.SelectLeaderBoardContest().click();
 		
 		Thread.sleep(5000);
 		Objects.getScore().click();
@@ -286,7 +289,7 @@ public class RealTimeData extends Dream11Web
 	}
 
 	//Collecting credit points from Dream11.com:
-	public static HashMap<String, String[]> getPlayersRealTimeCreditsFromDream11Site(WebDriver wb, int iMatch) throws InterruptedException
+	public static HashMap<String, String[]> getPlayerCreditsFromDream11Site(WebDriver wb, int iMatch) throws InterruptedException
 	{
 		wb.get("https://www.dream11.com/");
 		wb.manage().window().maximize();
@@ -296,7 +299,7 @@ public class RealTimeData extends Dream11Web
 		wt.until(ExpectedConditions.visibilityOf(Objects.getLogin())).click();
 		wt.until(ExpectedConditions.visibilityOf(Objects.getSignin())).click();
 		wt.until(ExpectedConditions.visibilityOf(Objects.getEmail())).sendKeys("chiranjit.halder@gmail.com");
-		wt.until(ExpectedConditions.visibilityOf(Objects.getPassword())).sendKeys("");
+		wt.until(ExpectedConditions.visibilityOf(Objects.getPassword())).sendKeys("sca1p2md3");
 		wt.until(ExpectedConditions.visibilityOf(Objects.getSubmit())).click();
 		
 
@@ -332,9 +335,9 @@ public class RealTimeData extends Dream11Web
 
 	//Get All Wicketkeeper credits
 		Thread.sleep(2000);
-		List<WebElement> TeamName1 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='light']")));
-		List<WebElement> AllPlayersWK = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell__col-player__header']")));
-		List<WebElement> AllCreditsWK = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell create-team__team-selector__player-card__cell__col-credit']")));
+		List<WebElement> TeamName1 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getTeam()));
+		List<WebElement> AllPlayersWK =wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getPlayersName()));
+		List<WebElement> AllCreditsWK = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getPlayerCredits()));
 
 		
 		for(int i=0;i<AllPlayersWK.size();i++)
@@ -349,9 +352,9 @@ public class RealTimeData extends Dream11Web
 		WebElement BAT= Objects.getBatIcon();
 		BAT.click();
 		Thread.sleep(2000);
-		List<WebElement> TeamName2 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='light']"))); 
-		List<WebElement> AllPlayersBat = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell__col-player__header']"))); 				
-		List<WebElement> AllCreditsBat = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell create-team__team-selector__player-card__cell__col-credit']")));
+		List<WebElement> TeamName2 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getTeam())); 
+		List<WebElement> AllPlayersBat = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getPlayersName())); 				
+		List<WebElement> AllCreditsBat = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getPlayerCredits()));
 		
 		for(int i=0;i<AllPlayersBat.size();i++)
 		{
@@ -365,9 +368,9 @@ public class RealTimeData extends Dream11Web
 			WebElement AL= Objects.getARIcon();
 			AL.click();
 			Thread.sleep(2000);
-			List<WebElement> TeamName3 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='light']"))); 
-			List<WebElement> AllPlayersAL = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell__col-player__header']")));
-			List<WebElement> AllrounderCredit =wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell create-team__team-selector__player-card__cell__col-credit']")));
+			List<WebElement> TeamName3 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getTeam()));
+			List<WebElement> AllPlayersAL = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getPlayersName()));
+			List<WebElement> AllrounderCredit =wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getPlayerCredits()));
 
 			
 			for(int i=0;i<AllPlayersAL.size();i++)
@@ -382,9 +385,9 @@ public class RealTimeData extends Dream11Web
 		WebElement BOWL= Objects.getBowlIcon();
 		BOWL.click();
 		Thread.sleep(2000);
-		List<WebElement> TeamName4 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='light']")));
-		List<WebElement> AllBowlers = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell__col-player__header']")));	
-		List<WebElement> AllBowlersCredits = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell create-team__team-selector__player-card__cell__col-credit']")));
+		List<WebElement> TeamName4 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getTeam()));
+		List<WebElement> AllBowlers = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getPlayersName()));	
+		List<WebElement> AllBowlersCredits = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(Dream11Web.getPlayerCredits()));
 		
 		for(int i=0;i<AllBowlers.size();i++)
 		{

@@ -23,13 +23,13 @@ public class Dream11Web extends BaseClass
 	@FindBy(how = How.ID, using = "LoginFormSubmit")
 	protected WebElement Submit;	
 	@FindBy(how = How.XPATH, using = "//*[text()='My Contests']")
-	protected WebElement MyContests;	
+	protected static WebElement MyContests;	
 	@FindBy(how = How.XPATH, using = "//*[text()='Results']")
 	protected WebElement ResultsTab;	
 	@FindBy(how = How.XPATH, using = "//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]")
 	protected WebElement SelectMatchContest;	
 	@FindBy(how = How.XPATH, using = "//*[contains(@href,'/cricket/leaderboard/indian-t20-league/811')]")
-	protected WebElement SelectContest;		
+	protected WebElement SelectLeaderBoardContest;		
 	@FindBy(how = How.XPATH, using = "//*[text()='Score']")
 	protected WebElement Score;	
 	@FindBy(how = How.XPATH, using = "//table[@class='fantasy-scorecard__table']/tbody/tr")
@@ -80,8 +80,8 @@ public class Dream11Web extends BaseClass
 	public WebElement getSubmit() {
 		return Submit;
 	}
-	public WebElement getMyContests() { 
-		return MyContests;
+	public static By getMyContests() { 
+		return By.xpath("//*[text()='My Contests']");
 	}
 	public WebElement getResultsTab() {
 		return ResultsTab;
@@ -89,8 +89,8 @@ public class Dream11Web extends BaseClass
 	public WebElement getSelectMatchContest() {
 		return SelectMatchContest;
 	}
-	public WebElement getSelectContest() {
-		return SelectContest;
+	public WebElement SelectLeaderBoardContest() {
+		return SelectLeaderBoardContest;
 	}
 	public WebElement getScore() {
 		return Score;
@@ -101,12 +101,37 @@ public class Dream11Web extends BaseClass
 	public static By getCreateTeam() {
 		return By.xpath("//*[text()='Create Team']");
 	}
+	public static By getTeam() {
+		return By.xpath("//*[@class='light']");
+	}
+	public static By getPlayersName() {
+		return By.xpath("//*[@class='create-team__team-selector__player-card__cell__col-player__header']");
+	}
+	public static By getPlayerCredits() {
+		return By.xpath("//*[@class='create-team__team-selector__player-card__cell create-team__team-selector__player-card__cell__col-credit']");
+	}
 	public WebElement getTeamName() {
 		return TeamName;
 	}
 	public List<WebElement> getPlayers() {
 		return Credit_Players;
 	}
+	public static By getContests() {
+		return By.xpath("//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]");
+	}
+	public static By getMatch() {
+		return By.xpath("//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]");
+	}
+	public static By ClickOnResultsTab() {
+		return By.xpath("//*[text()='Results']");
+	}
+	public static By ClickOnLiveTab() {
+		return By.xpath("//*[text()='Live']");
+	}
+	
+	
+	
+	
 	public List<WebElement> getCredits() {
 		return Credits;
 	}

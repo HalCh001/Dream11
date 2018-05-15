@@ -561,7 +561,7 @@ public class PlayerManager extends BaseClass
         htmlPart1.setContent(email.toString(), "text/html; charset=utf-8");
         mp.addBodyPart(htmlPart1);
 
-        SendEmailJar.send("AutoCreditMail@gmail.com","","chiranjit.halder@gmail.com","Dream11",mp);
+        SendEmailJar.send("AutoCreditMail@gmail.com","Test@12345#","chiranjit.halder@gmail.com","Dream11",mp);
     }
 
 
