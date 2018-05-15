@@ -124,11 +124,8 @@ public class RealTimeData extends Dream11Web
 		for(Entry<String, String[]> entry : TeamDetails.entrySet())
 			{			
 				String[] str=entry.getValue();
-				//log.info("---------------------------------------------------------------");	
-				//log.info("Team Name: "+str[0]);
 				int updated=0;
-				
-						
+										
 		    	 try
 		    	 {		    		 
 		    		 HSSFSheet Sh= x1.getSheet("IPL_"+str[0]);	
@@ -236,12 +233,6 @@ public class RealTimeData extends Dream11Web
 		
 		List<WebElement> allCol= Objects.getPointsTableColumn();
 		log.info("Total No of Rows: "+allCol.size());
-		
-		WebElement Team1Name= Objects.getTeam1Name();
-		log.info(Team1Name.getText());
-		
-		WebElement Team2Name= Objects.getTeam2Name();
-		log.info(Team2Name.getText());
 					
 		List<WebElement> PlayersName=Objects.getPoints_Players();
 		List<WebElement> PlayersPoint=Objects.getPoints();

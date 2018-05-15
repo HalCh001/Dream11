@@ -36,13 +36,7 @@ public class Dream11Web extends BaseClass
 	@FindBy(how = How.XPATH, using = "/html/body/div/div[1]/div/div[2]/div[2]/table/tbody/tr")
 	protected List<WebElement> PointsTableRow1;
 	@FindBy(how = How.XPATH, using = "//table/tbody/tr[1]/td")
-	protected List<WebElement> PointsTableColumn;	
-	@FindBy(how = How.XPATH, using = "html/body/div[1]/div[1]/div/div[2]/div[1]/div[1]/div[1]/span[2]")
-	protected WebElement Team1Name;	
-	@FindBy(how = How.XPATH, using = "html/body/div[1]/div[1]/div/div[2]/div[1]/div[1]/div[2]/span[2]")
-	protected WebElement Team2Name;	
-	@FindBy(how = How.XPATH, using = "html/body/div[1]/div[1]/div/div[2]/div/div/div/div/div/div/div[1]/div/div/div[2]/a[1]/div/div/div")
-	protected WebElement SelectMatchFixtures;	
+	protected List<WebElement> PointsTableColumn;		
 	@FindBy(how = How.XPATH, using = "//*[text()='Create Team']")
 	protected WebElement CreateTeam;	
 	@FindBy(how = How.XPATH, using = "//*[@class='light']")
@@ -115,15 +109,6 @@ public class Dream11Web extends BaseClass
 	}
 	public List<WebElement> getPointsTableColumn() {
 		return PointsTableColumn;
-	}
-	public WebElement getTeam1Name() {
-		return Team1Name;
-	}
-	public WebElement getTeam2Name() {
-		return Team2Name;
-	}
-	public WebElement getSelectMatchFixtures() {
-		return SelectMatchFixtures;
 	}
 	public WebElement getCreateTeam() {
 		return CreateTeam;
