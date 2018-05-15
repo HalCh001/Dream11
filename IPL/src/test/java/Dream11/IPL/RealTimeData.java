@@ -196,7 +196,7 @@ public class RealTimeData extends Dream11Web
 		Objects.getLogin().click();
 		Objects.getSignin().click();
 		Objects.getEmail().sendKeys("chiranjit.halder@gmail.com");
-		Objects.getPassword().sendKeys("sca1p2md3");
+		Objects.getPassword().sendKeys("");
 		Objects.getSubmit().click();
 		
 		wt.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='My Contests']"))).click();
