@@ -61,9 +61,9 @@ public class Dream11Web extends BaseClass
 	@FindBy(how = How.XPATH, using = "//*[text()='BOWL']")
 	protected WebElement BowlIcon;	
 	@FindBy(how = How.XPATH, using = "//*[@class='fantasy-scorecard__cell'][1]")
-	protected List<WebElement> Points_Players;	//need to think how to fetch
+	protected List<WebElement> Points_Players;
 	@FindBy(how = How.XPATH, using = "//*[@class='fantasy-scorecard__cell'][15]")
-	protected List<WebElement> Points;	 //need to think how to fetch
+	protected List<WebElement> Points;
 	@FindBy(how= How.XPATH,using = "//*[contains(@href,'/cricket/leagues/Indian T20 League/811')]")
 	protected List<WebElement> Matches;
 	@FindBy(how= How.XPATH,using = "//*[contains(text(),'My Teams')]")
