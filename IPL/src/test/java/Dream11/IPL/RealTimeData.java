@@ -227,12 +227,6 @@ public class RealTimeData extends Dream11Web
 		
 		List<WebElement> allRow= Objects.getPointsTableRow();
 		log.info("Total No of Rows: "+allRow.size());
-		
-		List<WebElement> allRow1=Objects.getPointsTableRow1();
-		log.info("Total No of Rows: "+allRow1.size());
-		
-		List<WebElement> allCol= Objects.getPointsTableColumn();
-		log.info("Total No of Rows: "+allCol.size());
 					
 		List<WebElement> PlayersName=Objects.getPoints_Players();
 		List<WebElement> PlayersPoint=Objects.getPoints();
