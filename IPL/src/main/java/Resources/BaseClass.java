@@ -7,10 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 public class BaseClass 
 {
-	String PrjDirectory= System.getProperty("user.dir");
-	//static final Logger log= LoggerClass.Configure(LoginToFacebook.class);
-
-	public static WebDriver InitiateDriver() throws IOException
+	static String PrjDirectory= System.getProperty("user.dir");
+	public static final String ExcelLocation= PrjDirectory+"\\DataTables\\Player.xls";
+			public static WebDriver InitiateDriver() throws IOException
 	{
 		Properties prop= new Properties();
 		FileInputStream fis= new FileInputStream("D:\\Automation Tool\\Selenium\\WorkSpace\\SOMS_Automation\\src\\test\\java\\SOMS\\Data.properties");

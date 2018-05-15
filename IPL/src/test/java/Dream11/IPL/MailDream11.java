@@ -1,5 +1,6 @@
 package Dream11.IPL;
 
+import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -33,14 +34,12 @@ public class MailDream11 extends BaseClass
 	{			
 		//-------update all data
 			ArrayList<String> Team= new ArrayList<String>();
-			Team= RealTimeData.updateExcelWithRealTimePlayerPoints(wb);			
-			
+			Team= RealTimeData.updateExcelWithRealTimePlayerPoints(wb);						
 		//Today's playing teams:	
-			System.out.println("Team1: "+Team.get(0)+" ,Team2: "+Team.get(1));
-			
+			log.info("Team1: "+Team.get(0)+" ,Team2: "+Team.get(1));			
 		//Here u go..	
 			PlayerManager.MailMyDream11(Team.get(0),Team.get(1));
-		//PlayerManager.MailMyDream11("PNJ","BLR");
+			//PlayerManager.MailMyDream11("PNJ","BLR");
 	}
 
 	    

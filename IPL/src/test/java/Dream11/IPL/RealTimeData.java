@@ -26,6 +26,7 @@ import Dream11.IPL.Dream11Web;
 
 public class RealTimeData extends Dream11Web 
 {
+	
 	static final Logger log=LoggerClass.Configure(RealTimeData.class);
 	static int NoOfMatch=1;
 	
@@ -64,7 +65,6 @@ public class RealTimeData extends Dream11Web
 		
 		for(Entry<String, HashMap<String,String>> entry : AllPlayersPoints.entrySet())
 			{
-				String ExcelLocation="D:\\Automation Tool\\Selenium\\DataTables\\Player.xls";
 				File F1= new File(ExcelLocation);
 				
 				FileInputStream Fis= new FileInputStream(F1);
@@ -115,7 +115,6 @@ public class RealTimeData extends Dream11Web
 	public static Boolean updateExcelWithNextMatchPlayerCredits(HashMap<String, String[]> TeamDetails) throws InterruptedException, IOException
 	
 	{
-		String ExcelLocation="D:\\Automation Tool\\Selenium\\DataTables\\Player.xls";
 		File F1= new File(ExcelLocation);
 		FileInputStream Fis= new FileInputStream(F1);
 		HSSFWorkbook x1= new HSSFWorkbook(Fis);
@@ -262,7 +261,6 @@ public class RealTimeData extends Dream11Web
 		String SheetName = null;
 		for(int i=2; i<=9; i++)
 		{
-			String ExcelLocation="D:\\Automation Tool\\Selenium\\DataTables\\Player.xls";
 			File F1= new File(ExcelLocation);			
 			FileInputStream Fis= new FileInputStream(F1);
 			HSSFWorkbook x1= new HSSFWorkbook(Fis);									
@@ -323,7 +321,7 @@ public class RealTimeData extends Dream11Web
 		
 		catch(Exception e)
 		{
-			System.out.println("My teams links to present. Since once team is already created");
+			System.out.println("My teams links not present. Since one team is already created");
 		}
 		
 		//Clicking on Create Team	
@@ -333,7 +331,7 @@ public class RealTimeData extends Dream11Web
 		HashMap<String, String[]> AllPlayersMap= new HashMap<String,String[]>();
 		
 
-	//Get All WK credits
+	//Get All Wicketkeeper credits
 		Thread.sleep(2000);
 		List<WebElement> TeamName1 = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='light']")));
 		List<WebElement> AllPlayersWK = wt.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//*[@class='create-team__team-selector__player-card__cell__col-player__header']")));
@@ -347,7 +345,7 @@ public class RealTimeData extends Dream11Web
 			
 		}
 		
-	//Get All BAT credits	
+	//Get All Batsman credits	
 			
 		WebElement BAT= Objects.getBatIcon();
 		BAT.click();
@@ -363,7 +361,7 @@ public class RealTimeData extends Dream11Web
 		}
 
 	
-	//Get All AL credits	
+	//Get All Alrounder credits	
 
 			WebElement AL= Objects.getARIcon();
 			AL.click();
@@ -380,7 +378,7 @@ public class RealTimeData extends Dream11Web
 				AllPlayersMap.put(AllPlayersAL.get(i).getText(), str2);
 			}
 	
-		//Get All Bowl credits	
+		//Get All Bowler credits	
 
 		WebElement BOWL= Objects.getBowlIcon();
 		BOWL.click();
@@ -423,7 +421,6 @@ public class RealTimeData extends Dream11Web
 	//Manipulating All data together:
 	public static String[] getPlayerInfo(String TeamName, String PlayerName) throws IOException
 	{
-		String ExcelLocation="D:\\Automation Tool\\Selenium\\DataTables\\Player.xls";
 		File F1= new File(ExcelLocation);
 
 		

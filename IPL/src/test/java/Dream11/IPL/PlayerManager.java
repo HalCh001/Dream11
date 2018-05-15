@@ -38,7 +38,6 @@ public class PlayerManager extends BaseClass
 
 	{	
 	 HashMap<String,ArrayList<Object>> m0= new HashMap<String,ArrayList<Object>>();
-	 String ExcelLocation="D:\\Automation Tool\\Selenium\\DataTables\\Player.xls";
 	 File F1= new File(ExcelLocation);	 
 	 FileInputStream Fis= new FileInputStream(F1);
 	 HSSFWorkbook x1= new HSSFWorkbook(Fis);
