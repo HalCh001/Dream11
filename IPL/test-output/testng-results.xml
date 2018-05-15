@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="112115" started-at="2018-05-15T16:49:47Z" finished-at="2018-05-15T16:51:39Z">
+  <suite name="AllSet" duration-ms="106948" started-at="2018-05-15T18:05:47Z" finished-at="2018-05-15T18:07:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="112115" started-at="2018-05-15T16:49:47Z" finished-at="2018-05-15T16:51:39Z">
+    <test name="MailMyDream11" duration-ms="106948" started-at="2018-05-15T18:05:47Z" finished-at="2018-05-15T18:07:34Z">
       <class name="Dream11.IPL.MailDream11">
-        <test-method status="PASS" signature="OnStart()[pri:0, instance:Dream11.IPL.MailDream11@9454b3]" name="OnStart" is-config="true" duration-ms="19" started-at="2018-05-15T22:19:47Z" finished-at="2018-05-15T22:19:47Z">
+        <test-method status="PASS" signature="OnStart()[pri:0, instance:Dream11.IPL.MailDream11@1ed9fea]" name="OnStart" is-config="true" duration-ms="19" started-at="2018-05-15T23:35:47Z" finished-at="2018-05-15T23:35:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OnStart -->
-        <test-method status="PASS" signature="MailMeDream11()[pri:0, instance:Dream11.IPL.MailDream11@9454b3]" name="MailMeDream11" duration-ms="112040" started-at="2018-05-15T22:19:47Z" finished-at="2018-05-15T22:21:39Z">
+        <test-method status="PASS" signature="MailMeDream11()[pri:0, instance:Dream11.IPL.MailDream11@1ed9fea]" name="MailMeDream11" duration-ms="106886" started-at="2018-05-15T23:35:48Z" finished-at="2018-05-15T23:37:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MailMeDream11 -->
       </class> <!-- Dream11.IPL.MailDream11 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- MailMyDream11 -->
+  </suite> <!-- AllSet -->
 </testng-results>
