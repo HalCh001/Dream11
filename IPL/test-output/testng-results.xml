@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="103318" started-at="2018-05-15T16:10:05Z" finished-at="2018-05-15T16:11:48Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="103318" started-at="2018-05-15T16:10:05Z" finished-at="2018-05-15T16:11:48Z">
+      <class name="Dream11.IPL.MailDream11">
+        <test-method status="PASS" signature="OnStart()[pri:0, instance:Dream11.IPL.MailDream11@1ed9fea]" name="OnStart" is-config="true" duration-ms="20" started-at="2018-05-15T21:40:05Z" finished-at="2018-05-15T21:40:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OnStart -->
+        <test-method status="PASS" signature="MailMeDream11()[pri:0, instance:Dream11.IPL.MailDream11@1ed9fea]" name="MailMeDream11" duration-ms="103242" started-at="2018-05-15T21:40:05Z" finished-at="2018-05-15T21:41:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MailMeDream11 -->
+      </class> <!-- Dream11.IPL.MailDream11 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

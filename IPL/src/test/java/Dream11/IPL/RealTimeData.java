@@ -296,7 +296,7 @@ public class RealTimeData extends Dream11Web
 		wt.until(ExpectedConditions.visibilityOf(Objects.getLogin())).click();
 		wt.until(ExpectedConditions.visibilityOf(Objects.getSignin())).click();
 		wt.until(ExpectedConditions.visibilityOf(Objects.getEmail())).sendKeys("chiranjit.halder@gmail.com");
-		wt.until(ExpectedConditions.visibilityOf(Objects.getPassword())).sendKeys("sca1p2md3");
+		wt.until(ExpectedConditions.visibilityOf(Objects.getPassword())).sendKeys("");
 		wt.until(ExpectedConditions.visibilityOf(Objects.getSubmit())).click();
 		
 
@@ -325,8 +325,7 @@ public class RealTimeData extends Dream11Web
 		}
 		
 		//Clicking on Create Team	
-		wt.until(ExpectedConditions.visibilityOf(Objects.getCreateTeam())).click();
-		
+		wt.until(ExpectedConditions.presenceOfElementLocated(Dream11Web.getCreateTeam())).click();
 		
 		HashMap<String, String[]> AllPlayersMap= new HashMap<String,String[]>();
 		

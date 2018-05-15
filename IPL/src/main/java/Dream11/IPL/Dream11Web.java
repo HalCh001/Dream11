@@ -2,6 +2,7 @@ package Dream11.IPL;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -97,8 +98,8 @@ public class Dream11Web extends BaseClass
 	public List<WebElement> getPointsTableRow() {
 		return PointsTableRow;
 	}
-	public WebElement getCreateTeam() {
-		return CreateTeam;
+	public static By getCreateTeam() {
+		return By.xpath("//*[text()='Create Team']");
 	}
 	public WebElement getTeamName() {
 		return TeamName;

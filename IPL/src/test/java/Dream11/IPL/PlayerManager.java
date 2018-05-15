@@ -149,7 +149,7 @@ public class PlayerManager extends BaseClass
 	
 	return Last3;
 }		
-	public static Map<String, ArrayList<Object>> getBestPossibleSetOfLast7Players(HashMap<String, ArrayList<Object>> Ready4) throws IOException
+	public static Map<String, ArrayList<Object>> getBestPossibleSetOfLast10Players(HashMap<String, ArrayList<Object>> Ready1) throws IOException
 	{
 		Map<String, ArrayList<Object>> IntrimCombination= new HashMap<String,ArrayList<Object>>();
 		Map<String, ArrayList<Object>> FinalCombination= new HashMap<String,ArrayList<Object>>();
@@ -157,9 +157,9 @@ public class PlayerManager extends BaseClass
 		Map<String, ArrayList<Object>> RemainingPlayers= new HashMap<String,ArrayList<Object>>();
 
 		
-//Calculating remaining credits after Top4 players taken.
+//Calculating remaining credits after Top1 players taken.
 		
-		double remainingCredits= getRemainingCredits(Ready4);		
+		double remainingCredits= getRemainingCredits(Ready1);		
 		System.out.println();		
 		log.info("Remaining Credits: "+remainingCredits);
 		
@@ -168,9 +168,9 @@ public class PlayerManager extends BaseClass
 		AllPlayers=getAllPlayersOfSpecificType("ALL");
 		System.out.println();	
 
-//removing already taken Top4 players from All player's List:
+//removing already taken Top1 players from All player's List:
 		
-		for (Entry<String, ArrayList<Object>> entry: Ready4.entrySet())
+		for (Entry<String, ArrayList<Object>> entry: Ready1.entrySet())
 		{
 			AllPlayers.remove(entry.getKey());
 		}
@@ -182,7 +182,7 @@ public class PlayerManager extends BaseClass
 //Genrating Possible combinations for the leftover 7 players:
 		
 		ArrayList<ArrayList<Integer>> PossibleCombination= new ArrayList<ArrayList<Integer>>();
-		PossibleCombination=GetPossibleCombination(7);
+		PossibleCombination=GetPossibleCombination(10);
 
 //Considering all possible combinations and Checking out the best:
 		
@@ -197,8 +197,8 @@ public class PlayerManager extends BaseClass
 			double Cr2= getTotalCreditsOrPoints(IntrimCombination,"Credit");
 			double Pr2= getTotalCreditsOrPoints(IntrimCombination,"Point");
 			
-			boolean NoOfPlayersCrossedSevenFrom1stCombination=validatePlayerCap(Ready4,FinalCombination,"Existing Combination");
-			boolean NoOfPlayersCrossedSevenFrom2ndCombination=validatePlayerCap(Ready4,IntrimCombination,"New Combination");
+			boolean NoOfPlayersCrossedSevenFrom1stCombination=validatePlayerCap(Ready1,FinalCombination,"Existing Combination");
+			boolean NoOfPlayersCrossedSevenFrom2ndCombination=validatePlayerCap(Ready1,IntrimCombination,"New Combination");
 			
 			//log.info("Combination "+i+" -> Credit: "+Cr1+" ,Point: "+Pr1);			
 			//log.info("Combination "+(i+1)+" -> Credit: "+Cr2+" ,Point: "+Pr2);
@@ -244,12 +244,12 @@ public class PlayerManager extends BaseClass
 	int counter=0;
 	ArrayList<ArrayList<Integer>> Combination= new ArrayList<ArrayList<Integer>>();
 	
-	for(int i= 0;i<3;i++)
+	for(int i= 0;i<=3;i++) //= added
 	{
-		for(int j=2;j<5;j++)
+		for(int j=3;j<=5;j++) //changed from 2 to 3 added & = added
 		{
 			k=sum-j-i;
-			if(k<5 & k>1)
+			if(k<=5 & k>2) //= added , changed > 2 from >1
 			{
 				if(i>=0 && j>=0 && k>=0){
 				ArrayList<Integer> p= new ArrayList<>();
@@ -413,37 +413,32 @@ public class PlayerManager extends BaseClass
 		
 		HashMap<String, ArrayList<Object>> Dream11= new HashMap<String,ArrayList<Object>>();
 		Map<String, ArrayList<Object>> UpdatedDream11= new HashMap<String,ArrayList<Object>>();
-		Map<String, ArrayList<Object>> BestPossible7= new HashMap<String,ArrayList<Object>>();
+		Map<String, ArrayList<Object>> BestPossible10= new HashMap<String,ArrayList<Object>>();
 		
 		double totalCredit=0.00;
 		double totalPoints=0.00;
 		
-//-----------------------------------------------------------Top4 + Last7 Combination--------------------------------------------------------------//
+//-----------------------------------------------------------Top1 + Last10 Combination--------------------------------------------------------------//
 
-//Getting Top4 Players
-		
-		Dream11.putAll(PlayerManager.GetTopPlayersOfSpecificType("Bat",1));
-		Dream11.putAll(PlayerManager.GetTopPlayersOfSpecificType("AL",1));
-		Dream11.putAll(PlayerManager.GetTopPlayersOfSpecificType("WK",1));
-		Dream11.putAll(PlayerManager.GetTopPlayersOfSpecificType("Bowl",1));
-		System.out.println();	;
-		
-		log.info("@Top 4 Pick: ");
+//Getting TopWK Player
+	
+  		Dream11.putAll(PlayerManager.GetTopPlayersOfSpecificType("WK",1));	
+		log.info("@Top WK Pick: ");  // Changed from 4 to 1
 		
 		for(Entry<String, ArrayList<Object>> entry : Dream11.entrySet())
 		{
 			log.info("Player Name: "+entry.getKey()+",[ Details: Team-> "+entry.getValue().get(3)+  ", Type-> "+entry.getValue().get(0)+ ", Points-> "+entry.getValue().get(1)+ ", Credit- "+entry.getValue().get(2)+" ]");
 		}
 	
-//Getting Last7 Players
+//Getting Last10 Players
 		
-		BestPossible7=PlayerManager.getBestPossibleSetOfLast7Players(Dream11);		
-		Dream11.putAll(BestPossible7);
+		BestPossible10=PlayerManager.getBestPossibleSetOfLast10Players(Dream11);		
+		Dream11.putAll(BestPossible10);
 		
 		System.out.println();	;
-		log.info("@Last 7 Pick: ");
+		log.info("@Last 10 Pick: ");
 		
-		for(Entry<String, ArrayList<Object>> entry : BestPossible7.entrySet())
+		for(Entry<String, ArrayList<Object>> entry : BestPossible10.entrySet())
 		{
 			log.info("Player Name: "+entry.getKey()+",[ Details: Team-> "+entry.getValue().get(3)+  ", Type-> "+entry.getValue().get(0)+ ", Points-> "+entry.getValue().get(1)+ ", Credit- "+entry.getValue().get(2)+" ]");
 		}
@@ -566,7 +561,7 @@ public class PlayerManager extends BaseClass
         htmlPart1.setContent(email.toString(), "text/html; charset=utf-8");
         mp.addBodyPart(htmlPart1);
 
-        SendEmailJar.send("AutoCreditMail@gmail.com","Test@12345#","chiranjit.halder@gmail.com","Dream11",mp);
+        SendEmailJar.send("AutoCreditMail@gmail.com","","chiranjit.halder@gmail.com","Dream11",mp);
     }
 
 
