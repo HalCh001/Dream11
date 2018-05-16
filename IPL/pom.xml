@@ -18,7 +18,7 @@
             <target>1.7</target>
            	<suiteXmlFiles>
             	<suiteXmlFile>testng.xml</suiteXmlFile>
-          </suiteXmlFiles>
+          	</suiteXmlFiles>
         </configuration>
       </plugin>
 	</plugins>
