@@ -191,7 +191,8 @@ public class RealTimeData extends Dream11Web
 		HashMap<String,HashMap<String,String>> Fullteam= new HashMap<String,HashMap<String,String>>();
 
 		Objects.getLogin().click();
-		Objects.getSignin().click();
+		try{Objects.getSignin().click();}
+		catch(Exception e){e.getMessage();}
 		Objects.getEmail().sendKeys("chiranjit.halder@gmail.com");
 		Objects.getPassword().sendKeys("sca1p2md3");
 		Objects.getSubmit().click();
@@ -296,8 +297,11 @@ public class RealTimeData extends Dream11Web
 		
 		Dream11Web Objects= PageFactory.initElements(wb, Dream11Web.class);
 		Objects.getLogin().click();
-		Objects.getSignin().click();
+		try{Objects.getSignin().click();}
+		catch(Exception e){e.getMessage();}
+		System.out.println("1");
 		Objects.getEmail().sendKeys("chiranjit.halder@gmail.com");
+		System.out.println("2");
 		Objects.getPassword().sendKeys("sca1p2md3");
 		Objects.getSubmit().click();
 		
