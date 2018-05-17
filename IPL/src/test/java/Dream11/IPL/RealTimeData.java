@@ -295,11 +295,11 @@ public class RealTimeData extends Dream11Web
 		WebDriverWait wt = new WebDriverWait(wb,30);
 		
 		Dream11Web Objects= PageFactory.initElements(wb, Dream11Web.class);
-		wt.until(ExpectedConditions.visibilityOf(Objects.getLogin())).click();
-		wt.until(ExpectedConditions.visibilityOf(Objects.getSignin())).click();
-		wt.until(ExpectedConditions.visibilityOf(Objects.getEmail())).sendKeys("chiranjit.halder@gmail.com");
-		wt.until(ExpectedConditions.visibilityOf(Objects.getPassword())).sendKeys("sca1p2md3");
-		wt.until(ExpectedConditions.visibilityOf(Objects.getSubmit())).click();
+		Objects.getLogin().click();
+		Objects.getSignin().click();
+		Objects.getEmail().sendKeys("chiranjit.halder@gmail.com");
+		Objects.getPassword().sendKeys("sca1p2md3");
+		Objects.getSubmit().click();
 		
 
 //Checking count of 'No of match fixes' on first go only		
