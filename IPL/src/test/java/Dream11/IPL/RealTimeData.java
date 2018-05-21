@@ -38,7 +38,7 @@ public class RealTimeData extends Dream11Web
 		
 		//Update Credit points:
 		HashMap<String, String[]> AllPlayersMap= new HashMap<String,String[]>();
-		
+/*	
 		for(int iMatch=1; iMatch<=NoOfMatch; iMatch++)
 		{
 		wb=InitiateDriver();
@@ -47,7 +47,7 @@ public class RealTimeData extends Dream11Web
 		wb.quit();
 		}
 
-		
+*/	
 		//Get Live player Points:
 		wb=InitiateDriver();
 		AllPlayersPoints= getPlaying11PointsFromDream11Site(wb);
@@ -213,7 +213,7 @@ public class RealTimeData extends Dream11Web
 			wt.until(ExpectedConditions.presenceOfElementLocated(Dream11Web.ClickOnResultsTab())).click();
 			Thread.sleep(3000);
 			List<WebElement> Contest1= wb.findElements(Dream11Web.getContests());
-			Contest1.get(0).click();
+			Contest1.get(6).click();
 		}
 
 		Thread.sleep(5000);		
