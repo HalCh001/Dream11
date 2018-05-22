@@ -2,20 +2,34 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5672" started-at="2018-05-19T06:49:42Z" finished-at="2018-05-19T06:49:48Z">
+  <suite name="Default suite" duration-ms="1772" started-at="2018-05-22T19:20:23Z" finished-at="2018-05-22T19:20:25Z">
     <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.Runner@177b093]" name="feature" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
     </groups>
-    <test name="Default test" duration-ms="5672" started-at="2018-05-19T06:49:42Z" finished-at="2018-05-19T06:49:48Z">
-      <class name="Dream11.IPL.MailDream11">
-        <test-method status="PASS" signature="OnStart()[pri:0, instance:Dream11.IPL.MailDream11@c85b3]" name="OnStart" is-config="true" duration-ms="19" started-at="2018-05-19T12:19:42Z" finished-at="2018-05-19T12:19:42Z">
+    <test name="Default test" duration-ms="1772" started-at="2018-05-22T19:20:23Z" finished-at="2018-05-22T19:20:25Z">
+      <class name="testRunner.Runner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testRunner.Runner@177b093]" name="setUpClass" is-config="true" duration-ms="775" started-at="2018-05-23T00:50:24Z" finished-at="2018-05-23T00:50:24Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OnStart -->
-        <test-method status="PASS" signature="MailMeDream11()[pri:0, instance:Dream11.IPL.MailDream11@c85b3]" name="MailMeDream11" duration-ms="5612" started-at="2018-05-19T12:19:42Z" finished-at="2018-05-19T12:19:48Z">
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.Runner@177b093]" name="feature" duration-ms="655" started-at="2018-05-23T00:50:25Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2018-05-23T00:50:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Get real time Dream11 for Ongoing IPL Match]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- MailMeDream11 -->
-      </class> <!-- Dream11.IPL.MailDream11 -->
+        </test-method> <!-- feature -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testRunner.Runner@177b093]" name="tearDownClass" is-config="true" duration-ms="24" started-at="2018-05-23T00:50:25Z" finished-at="2018-05-23T00:50:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- testRunner.Runner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
