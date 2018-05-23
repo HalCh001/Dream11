@@ -38,7 +38,7 @@ public class RealTimeData extends Dream11Web
 		
 		//Update Credit points:
 		HashMap<String, String[]> AllPlayersMap= new HashMap<String,String[]>();
-/*	
+
 		for(int iMatch=1; iMatch<=NoOfMatch; iMatch++)
 		{
 		wb=InitiateDriver();
@@ -46,8 +46,7 @@ public class RealTimeData extends Dream11Web
 		updateExcelWithNextMatchPlayerCredits(AllPlayersMap);
 		wb.quit();
 		}
-
-*/	
+	
 		//Get Live player Points:
 		wb=InitiateDriver();
 		AllPlayersPoints= getPlaying11PointsFromDream11Site(wb);
@@ -105,7 +104,7 @@ public class RealTimeData extends Dream11Web
 		    	 		x1.write(fos);		    	 		
 		    	 		fos.close();
 					}
-		
+		wb.quit();
 		return TeamNames;
 			}	
 		
@@ -213,7 +212,7 @@ public class RealTimeData extends Dream11Web
 			wt.until(ExpectedConditions.presenceOfElementLocated(Dream11Web.ClickOnResultsTab())).click();
 			Thread.sleep(3000);
 			List<WebElement> Contest1= wb.findElements(Dream11Web.getContests());
-			Contest1.get(6).click();
+			Contest1.get(0).click();
 		}
 
 		Thread.sleep(5000);		
@@ -257,7 +256,7 @@ public class RealTimeData extends Dream11Web
 	}
 
 	//Get Team name with input as player name
-	private static String getTeamName(String PlayerName) throws IOException 
+	public static String getTeamName(String PlayerName) throws IOException 
 	
 	{
 		Boolean TeamFound=false;
@@ -405,7 +404,7 @@ public class RealTimeData extends Dream11Web
 	}
 	
 	//Getting No of Matches Next day:
-	private static int getNoOfMatchesNextDay(WebDriver wb) throws InterruptedException 
+	public static int getNoOfMatchesNextDay(WebDriver wb) throws InterruptedException 
 	{
 		WebDriverWait wt = new WebDriverWait(wb,20);
 		wt.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@href,'/cricket/leagues/Indian T20 League/811')]/div[1]/div/div/div[2]/div/div")));		
@@ -448,4 +447,5 @@ public class RealTimeData extends Dream11Web
 		return str;
 
 	}
+
 }

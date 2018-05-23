@@ -1,47 +1,36 @@
 package cucumberSteps;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.mail.MessagingException;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import Dream11.IPL.PlayerManager;
+import Dream11.IPL.RealTimeData;
+import Resources.LoggerClass;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class Steps 
 {
+	static final Logger log=LoggerClass.Configure(RealTimeData.class);
+	static WebDriver wb;
+	
 	@Given("^Open Browser$")
 	public void OpenBrowser()
 	{
-		System.out.println("Browser Launched");
+		System.out.println("Starting up");
 	}
-	
-	@When("^Get Player Credits$")
-	public void GetCredits()
-	{
-		System.out.println("Got Player Credits");
-	}
-	
-	@Then("^Update excel with Player Credits to corresponding Team Sheet$")
-	public void UpdateCredits()
-	{
-		System.out.println("Credits Updated");
-	}
-	
-	@When("^Get Player Points$")
-	public void getPoints()
-	{
-		System.out.println("Got Player Points");
-	}	
-	
-	@Then("^Update excel with Player Points from Dream11.com$")
-	public void UpdatePoints()
-	{
-		System.out.println("Points Updated");		
-	}
-	
 	@Then("^Mail Dream11$")
-	public Boolean Mail()
-	{
-		System.out.println("Mail Sent");
-		return true;
-		
+	public void MailMeDream11() throws IOException, MessagingException, InterruptedException 
+	{			
+		//-------update all data
+			ArrayList<String> Team= new ArrayList<String>();
+			Team= RealTimeData.updateExcelWithRealTimePlayerPoints(wb);						
+		//Today's playing teams:	
+			log.info("Team1: "+Team.get(0)+" ,Team2: "+Team.get(1));			
+		//Here u go..	
+			PlayerManager.MailMyDream11(Team.get(0),Team.get(1));
+			//PlayerManager.MailMyDream11("HYD","KOL");
 	}
-
 }
