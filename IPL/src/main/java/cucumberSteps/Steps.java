@@ -5,15 +5,14 @@ import java.util.ArrayList;
 import javax.mail.MessagingException;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import Dream11.IPL.PlayerManager;
-import Dream11.IPL.RealTimeData;
 import Resources.LoggerClass;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import Dream11.IPL.*;
 
 public class Steps 
 {
-	static final Logger log=LoggerClass.Configure(RealTimeData.class);
+	static final Logger log=LoggerClass.Configure(Thread.currentThread().getStackTrace()[1].getClass());
 	static WebDriver wb;
 	
 	@Given("^Open Browser$")

@@ -1,0 +1,4 @@
+23:19:04.988 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Amit Mishra,[ Details: Team-> DEL, Type-> Bowl, Points-> 23.0, Credit- 8.5 ]
+23:19:05.004 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Shreyas Iyer,[ Details: Team-> DEL, Type-> Bat, Points-> 17.0, Credit- 10.0 ]
+23:19:05.004 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Shardul Thakur,[ Details: Team-> CHE, Type-> Bowl, Points-> 16.0, Credit- 8.5 ]
+23:19:05.004 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Prithvi Shaw,[ Details: Team-> DEL, Type-> Bat, Points-> 12.0, Credit- 8.5 ]
