@@ -152,8 +152,8 @@ public class RealTimeData extends Dream11Web
 		    	 
 		    	 catch(Exception e)
 		    	 {
-		    		 e.printStackTrace();
-		    		 e.getMessage();
+		    		// e.printStackTrace();
+		    		 //e.getMessage();
 		    		 HSSFSheet Sh1= x1.createSheet("IPL_"+str[0]);
 		    		 HSSFRow sheetrow= Sh1.createRow(0);
 		    		 
@@ -407,8 +407,10 @@ public class RealTimeData extends Dream11Web
 	public static int getNoOfMatchesNextDay(WebDriver wb) throws InterruptedException 
 	{
 		WebDriverWait wt = new WebDriverWait(wb,20);
-		wt.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@href,'/cricket/leagues/Indian T20 League/811')]/div[1]/div/div/div[2]/div/div")));		
-		List<WebElement> TimerTime= wb.findElements(By.xpath("//*[contains(@href,'/cricket/leagues/Indian T20 League/811')]/div[1]/div/div/div[2]/div/div"));
+		//wt.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@href,'/cricket/leagues/Indian T20 League/811')]/div[1]/div/div/div[2]/div/div")));	
+		wt.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[contains(@href,'/cricket/leagues')]/div[1]/div/div/div[2]/div/div")));	
+		//List<WebElement> TimerTime= wb.findElements(By.xpath("//*[contains(@href,'/cricket/leagues/Indian T20 League/811')]/div[1]/div/div/div[2]/div/div"));
+		List<WebElement> TimerTime= wb.findElements(By.xpath("//*[contains(@href,'/cricket/leagues')]/div[1]/div/div/div[2]/div/div"));
 		Thread.sleep(3000);
 		for(WebElement Time: TimerTime)
 		{

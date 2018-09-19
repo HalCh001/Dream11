@@ -26,9 +26,11 @@ public class Dream11Web extends BaseClass
 	protected static WebElement MyContests;	
 	@FindBy(how = How.XPATH, using = "//*[text()='Results']")
 	protected WebElement ResultsTab;	
-	@FindBy(how = How.XPATH, using = "//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]")
+	//@FindBy(how = How.XPATH, using = "//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]")
+	@FindBy(how = How.XPATH, using = "//*[contains(@href,'/cricket/my-joined-leagues')]")
 	protected WebElement SelectMatchContest;	
-	@FindBy(how = How.XPATH, using = "//*[contains(@href,'/cricket/leaderboard/indian-t20-league/811')]")
+	//@FindBy(how = How.XPATH, using = "//*[contains(@href,'/cricket/leaderboard/indian-t20-league/811')]")
+	@FindBy(how = How.XPATH, using = "//*[contains(@href,'/cricket/leaderboard')]")
 	protected WebElement SelectLeaderBoardContest;		
 	@FindBy(how = How.XPATH, using = "//*[text()='Score']")
 	protected WebElement Score;	
@@ -52,7 +54,8 @@ public class Dream11Web extends BaseClass
 	protected List<WebElement> Points_Players;
 	@FindBy(how = How.XPATH, using = "//*[@class='fantasy-scorecard__cell'][15]")
 	protected List<WebElement> Points;
-	@FindBy(how= How.XPATH,using = "//*[contains(@href,'/cricket/leagues/Indian T20 League/811')]")
+	//@FindBy(how= How.XPATH,using = "//*[contains(@href,'/cricket/leagues/Indian T20 League/811')]")
+	@FindBy(how= How.XPATH,using = "//*[contains(@href,'/cricket/leagues')]")
 	protected List<WebElement> Matches;
 	@FindBy(how= How.XPATH,using = "//*[contains(text(),'My Teams')]")
 	protected WebElement MyTeams;
@@ -117,10 +120,12 @@ public class Dream11Web extends BaseClass
 		return Credit_Players;
 	}
 	public static By getContests() {
-		return By.xpath("//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]");
+		//return By.xpath("//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]");
+		return By.xpath("//*[contains(@href,'/cricket/my-joined-leagues')]");
 	}
 	public static By getMatch() {
-		return By.xpath("//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]");
+		//return By.xpath("//*[contains(@href,'/cricket/my-joined-leagues/Indian T20 League/811')]");
+		return By.xpath("//*[contains(@href,'/cricket/my-joined-leagues')]");
 	}
 	public static By ClickOnResultsTab() {
 		return By.xpath("//*[text()='Results']");
