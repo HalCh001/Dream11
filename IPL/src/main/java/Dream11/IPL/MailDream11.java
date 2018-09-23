@@ -28,7 +28,7 @@ public class MailDream11 extends BaseClass {
 
 		// -------update all data
 		ArrayList<String> Team = new ArrayList<String>();
-		RealTimeData.updateExcelWithRealTimePlayerPoints(wb);
+		//RealTimeData.updateExcelWithRealTimePlayerPoints(wb);
 		Team=RealTimeData.liveScore(wb);
 		// Today's playing teams:
 		log.info("Team1: " + Team.get(0) + " ,Team2: " + Team.get(1));
