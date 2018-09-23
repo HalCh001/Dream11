@@ -165,6 +165,7 @@ public class PlayerManager extends BaseClass
 		for (Entry<String, ArrayList<Object>> entry : Ready1.entrySet()) {
 			AllPlayers.remove(entry.getKey());
 		}
+		System.out.println("remainging map Size: "+AllPlayers.keySet().size());
 
 		// Storing the remaining players in another hashmap:
 
@@ -174,10 +175,13 @@ public class PlayerManager extends BaseClass
 
 		ArrayList<ArrayList<Integer>> PossibleCombination = new ArrayList<ArrayList<Integer>>();
 		PossibleCombination = GetPossibleCombination(10);
+		
+		FinalCombination = GetPlayerDetailsOfACombination(RemainingPlayers, PossibleCombination.get(0).get(1), PossibleCombination.get(0).get(2),
+				PossibleCombination.get(0).get(0));
 
 		// Considering all possible combinations and Checking out the best:
 
-		for (int i = 0; i < PossibleCombination.size(); i++) {
+		for (int i = 1; i < PossibleCombination.size(); i++) {
 			ArrayList<Integer> Combination = PossibleCombination.get(i);
 			IntrimCombination = GetPlayerDetailsOfACombination(RemainingPlayers, Combination.get(1), Combination.get(2),
 					Combination.get(0));
@@ -201,13 +205,11 @@ public class PlayerManager extends BaseClass
 				if (Pr1 > Pr2) {
 					log.info("Combination " + i + " retained. " + FinalCombination);
 					System.out.println();
-					;
 				}
 
 				else if (NoOfPlayersCrossedSevenFrom2ndCombination) {
 					log.info("Combination " + (i + 1) + " updated. " + IntrimCombination);
 					System.out.println();
-					;
 					FinalCombination.clear();
 					FinalCombination.putAll(IntrimCombination);
 				}
@@ -216,7 +218,6 @@ public class PlayerManager extends BaseClass
 			else if (Cr1 <= Cr2 && Cr1 <= remainingCredits && NoOfPlayersCrossedSevenFrom1stCombination) {
 				log.info("Combination " + i + " retained. " + FinalCombination);
 				System.out.println();
-				;
 			}
 
 			else if (Cr2 <= remainingCredits && NoOfPlayersCrossedSevenFrom2ndCombination) {
@@ -224,7 +225,6 @@ public class PlayerManager extends BaseClass
 				FinalCombination.putAll(IntrimCombination);
 				log.info("Combination " + (i + 1) + " updated. " + IntrimCombination);
 				System.out.println();
-				;
 			}
 
 		}
@@ -253,9 +253,8 @@ public class PlayerManager extends BaseClass
 				}
 			}
 		}
-		// log.info("Possible Combination: AL:BAT:BOWL "+Combination);
+		log.info("Possible Combination: AL:BAT:BOWL "+Combination);
 		System.out.println();
-		;
 		return Combination;
 	}
 
@@ -420,7 +419,6 @@ public class PlayerManager extends BaseClass
 		Dream11.putAll(BestPossible10);
 
 		System.out.println();
-		;
 		log.info("@Last 10 Pick: ");
 
 		for (Entry<String, ArrayList<Object>> entry : BestPossible10.entrySet()) {

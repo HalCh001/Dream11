@@ -13,44 +13,28 @@ import org.testng.annotations.BeforeTest;
 import Resources.BaseClass;
 import Resources.LoggerClass;
 
-
-public class MailDream11 extends BaseClass
-{
-	static final Logger log=LoggerClass.Configure(MailDream11.class);
+public class MailDream11 extends BaseClass {
+	static final Logger log = LoggerClass.Configure(MailDream11.class);
 	static WebDriver wb;
-	
+
 	@BeforeTest
-	public void OnStart() throws IOException, InterruptedException
-  {
-	  //wb=InitiateDriver();
+	public void OnStart() throws IOException, InterruptedException {
+		// wb=InitiateDriver();
 
-  }
-
-	@Test
-	public void MailMeDream11() throws IOException, MessagingException, InterruptedException 
-	{		
-		
-		//-------update all data
-			ArrayList<String> Team= new ArrayList<String>();
-			Team= RealTimeData.updateExcelWithRealTimePlayerPoints(wb);						
-		//Today's playing teams:	
-			log.info("Team1: "+Team.get(0)+" ,Team2: "+Team.get(1));			
-		//Here u go..	
-			PlayerManager.MailMyDream11(Team.get(0),Team.get(1));
-			PlayerManager.MailMyDream11("IND","PAK");
 	}
 
-	    
-	 
+	@Test
+	public void MailMeDream11() throws IOException, MessagingException, InterruptedException {
+
+		// -------update all data
+		ArrayList<String> Team = new ArrayList<String>();
+		//RealTimeData.updateExcelWithRealTimePlayerPoints(wb);
+		Team=RealTimeData.liveScore(wb);
+		// Today's playing teams:
+		log.info("Team1: " + Team.get(0) + " ,Team2: " + Team.get(1));
+		// Here u go..
+		PlayerManager.MailMyDream11(Team.get(0), Team.get(1));
+		//PlayerManager.MailMyDream11("IND", "PAK");
+	}
+
 }
-	
-	
-	
-	
-		
-	
-		
-		
-		
-
-

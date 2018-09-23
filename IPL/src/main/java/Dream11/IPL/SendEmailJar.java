@@ -15,8 +15,7 @@ class SendEmailJar
           props.put("mail.smtp.auth", "true");    
           props.put("mail.smtp.port", "465");   
           
-          Session session = Session.getDefaultInstance(props,    
-           new javax.mail.Authenticator() 
+          Session session = Session.getDefaultInstance(props,new javax.mail.Authenticator() 
           {    
 	           protected PasswordAuthentication getPasswordAuthentication() 
 	           {    

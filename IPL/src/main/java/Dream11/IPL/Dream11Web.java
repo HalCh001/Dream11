@@ -102,7 +102,7 @@ public class Dream11Web extends BaseClass
 		return PointsTableRow;
 	}
 	public static By getCreateTeam() {
-		return By.xpath("//*[text()='Create Team']");
+		return By.xpath("//*[contains(text(),'Create Team')]");
 	}
 	public static By getTeam() {
 		return By.xpath("//*[@class='light']");

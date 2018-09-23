@@ -25,7 +25,8 @@ public class Steps
 	{			
 		//-------update all data
 			ArrayList<String> Team= new ArrayList<String>();
-			Team= RealTimeData.updateExcelWithRealTimePlayerPoints(wb);						
+			RealTimeData.updateExcelWithRealTimePlayerPoints(wb);
+			Team=RealTimeData.liveScore(wb);						
 		//Today's playing teams:	
 			log.info("Team1: "+Team.get(0)+" ,Team2: "+Team.get(1));			
 		//Here u go..	

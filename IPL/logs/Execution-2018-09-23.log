@@ -1,0 +1,4 @@
+17:52:14.549 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Rohit Sharma,[ Details: Team-> Team_IND, Type-> Bat, Points-> 2.0, Credit- 10.5 ]
+17:52:14.556 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Kedar Jadhav,[ Details: Team-> Team_IND, Type-> AL, Points-> 2.0, Credit- 8.5 ]
+17:52:14.556 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Shadab Khan,[ Details: Team-> Team_PAK, Type-> AL, Points-> 2.0, Credit- 9.0 ]
+17:52:14.556 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Ravindra Jadeja,[ Details: Team-> Team_IND, Type-> AL, Points-> 2.0, Credit- 8.5 ]
