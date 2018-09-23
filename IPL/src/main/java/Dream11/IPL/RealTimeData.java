@@ -29,8 +29,7 @@ public class RealTimeData extends Dream11Web {
 	static int NoOfMatch = 1;
 
 	// UPDATING Total POINTS:
-	public static void updateExcelWithRealTimePlayerPoints(WebDriver wb)
-			throws InterruptedException, IOException
+	public static void updateExcelWithRealTimePlayerPoints(WebDriver wb) throws InterruptedException, IOException
 
 	{
 
@@ -46,7 +45,7 @@ public class RealTimeData extends Dream11Web {
 
 	}
 
-	public static ArrayList<String> liveScore(WebDriver wb) throws IOException, InterruptedException{
+	public static ArrayList<String> liveScore(WebDriver wb) throws IOException, InterruptedException {
 
 		HashMap<String, HashMap<String, String>> AllPlayersPoints = new HashMap<String, HashMap<String, String>>();
 		// Get Live player Points:
@@ -66,17 +65,17 @@ public class RealTimeData extends Dream11Web {
 			HSSFWorkbook x1 = new HSSFWorkbook(Fis);
 
 			HSSFSheet Y1 = x1.getSheetAt(SheetNo);
-			x1.setSheetName(SheetNo, "Team_"+entry.getKey());
-			System.out.println("Changed Sheet" + SheetNo + " Name to : " + entry.getKey());
+			x1.setSheetName(SheetNo, "Team_" + entry.getKey());
+			//System.out.println("Changed Sheet" + SheetNo + " Name to : " + entry.getKey());
 
 			if (Y1.getPhysicalNumberOfRows() >= 12) // clearing existing data
 			{
-				System.out.println("Cleared previous records");
+				// System.out.println("Cleared previous records");
 				for (int iCnt = 1; iCnt < Y1.getPhysicalNumberOfRows(); iCnt++) {
 					Y1.removeRow(Y1.getRow(iCnt));
 				}
 			}
-
+			
 			TeamNames.add(x1.getSheetName(SheetNo)); // to be used while calling Mail Dream11
 
 			for (Entry<String, String> entry1 : entry.getValue().entrySet()) {
@@ -102,7 +101,7 @@ public class RealTimeData extends Dream11Web {
 		wb.quit();
 		return TeamNames;
 	}
-	
+
 	// UPDATING CREDIT POINTS:
 	public static Boolean updateExcelWithNextMatchPlayerCredits(HashMap<String, String[]> TeamDetails)
 			throws InterruptedException, IOException
@@ -140,8 +139,6 @@ public class RealTimeData extends Dream11Web {
 			}
 
 			catch (Exception e) {
-				// e.printStackTrace();
-				// e.getMessage();
 				HSSFSheet Sh1 = x1.createSheet(str[0]);
 				HSSFRow sheetrow = Sh1.createRow(0);
 
@@ -191,8 +188,6 @@ public class RealTimeData extends Dream11Web {
 		try {
 			wt.until(ExpectedConditions.presenceOfElementLocated(Dream11Web.ClickOnLiveTab())).click();
 			Thread.sleep(3000);
-			// WebElement Match= wb.findElement(Dream11Web.getMatch());
-			// Match.click();
 			List<WebElement> Contest1 = wb.findElements(Dream11Web.getContests());
 			Contest1.get(0).click();
 		} catch (Exception e) {
@@ -201,8 +196,6 @@ public class RealTimeData extends Dream11Web {
 			List<WebElement> Contest1 = wb.findElements(Dream11Web.getContests());
 			Contest1.get(0).click();
 		}
-		
-	
 
 		Thread.sleep(5000);
 		Objects.SelectLeaderBoardContest().click();
@@ -214,19 +207,16 @@ public class RealTimeData extends Dream11Web {
 
 		String TeamName1 = null, TeamName2 = null;
 
-		List<WebElement> allRow = Objects.getPointsTableRow();
-		log.info("Total No of Rows: " + allRow.size());
-
 		List<WebElement> PlayersName = Objects.getPoints_Players();
 		List<WebElement> PlayersPoint = Objects.getPoints();
 		TeamName1 = getTeamName(PlayersName.get(0).getText());
 		TeamName2 = getTeamName(PlayersName.get(11).getText());
 
-		System.out.println("Match:  " + TeamName1 + " vs " + TeamName2);
-
+		System.out.println("Today's Match:  " + TeamName1 + " vs " + TeamName2);
+		System.out.println("");
+		System.out.println("======================Calculating DREAM11===========================");
+		System.out.println("");
 		for (int i = 0; i < 11; i++) {
-			// System.out.println("Team Name Found: "+TeamName1+" for Player:
-			// "+PlayersName.get(i).getText());
 			Team1.put(PlayersName.get(i).getText(), PlayersPoint.get(i).getText());
 		}
 
@@ -237,7 +227,6 @@ public class RealTimeData extends Dream11Web {
 		Fullteam.put(TeamName1, Team1);
 		Fullteam.put(TeamName2, Team2);
 
-		log.info("Record Size " + Fullteam.entrySet().size());
 		wb.quit();
 		return Fullteam;
 	}
@@ -253,10 +242,9 @@ public class RealTimeData extends Dream11Web {
 		FileInputStream Fis = new FileInputStream(F1);
 		HSSFWorkbook x1 = new HSSFWorkbook(Fis);
 		TeamName: for (int i = 2; i <= x1.getNumberOfSheets(); i++) {
-		HSSFSheet Y1 = x1.getSheetAt(i);
-		SheetName = x1.getSheetName(i);
-		//System.out.println("Searching in: " + SheetName);
-		 for (int j = 1; j < Y1.getPhysicalNumberOfRows(); j++) {
+			HSSFSheet Y1 = x1.getSheetAt(i);
+			SheetName = x1.getSheetName(i);
+			for (int j = 1; j < Y1.getPhysicalNumberOfRows(); j++) {
 				if (Y1.getRow(j).getCell((short) 0).getStringCellValue().contains(PlayerName)) {
 					TeamFound = true;
 					break TeamName;
@@ -425,7 +413,7 @@ public class RealTimeData extends Dream11Web {
 			String Name = Y1.getRow(iCnt).getCell((short) 0).getStringCellValue();
 			if (PlayerName.contains(Name)) {
 				Type = Y1.getRow(iCnt).getCell((short) 1).getStringCellValue();
-				Credit =Y1.getRow(iCnt).getCell((short) 2).getStringCellValue();
+				Credit = Y1.getRow(iCnt).getCell((short) 2).getStringCellValue();
 			}
 		}
 		String[] str = { Type, Credit };

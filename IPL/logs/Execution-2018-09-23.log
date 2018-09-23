@@ -1,4 +1,4 @@
-22:23:59.042 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Sarfraz Ahmed,[ Details: Team-> Team_PAK, Type-> WK, Points-> 25.0, Credit- 8.5 ]
-22:23:59.049 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Asif Ali,[ Details: Team-> Team_PAK, Type-> Bat, Points-> 19.5, Credit- 8.0 ]
-22:23:59.049 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Fakhar Zaman,[ Details: Team-> Team_PAK, Type-> Bat, Points-> 19.0, Credit- 9.5 ]
-22:23:59.049 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Mohammad Nawaz,[ Details: Team-> Team_PAK, Type-> Bowl, Points-> 10.0, Credit- 8.5 ]
+23:25:14.569 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Fakhar Zaman,[ Details: Team-> Team_PAK, Type-> Bat, Points-> 19.0, Credit- 9.5 ]
+23:25:14.575 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Mohammad Nawaz,[ Details: Team-> Team_PAK, Type-> Bowl, Points-> 10.0, Credit- 8.5 ]
+23:25:14.576 [main] INFO  Dream11.IPL.PlayerManager - Player Name: Imam-ul-Haq,[ Details: Team-> Team_PAK, Type-> Bat, Points-> 7.0, Credit- 8.5 ]
+23:25:14.576 [main] INFO  Dream11.IPL.PlayerManager - Total Credits Used out of 100: 100.0
