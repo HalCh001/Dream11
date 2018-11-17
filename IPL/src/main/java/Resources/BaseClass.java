@@ -21,11 +21,7 @@ public class BaseClass {
 		WebDriver wb = new ChromeDriver();
 		wb.manage().window().maximize();
 		System.out.println("Inilizing Driver");
-<<<<<<< HEAD
 		System.out.println("New Commit...WorkSpace1");
-=======
-		System.out.println("New Commit...WorkSpace");
->>>>>>> branch 'master' of https://github.com/HalCh001/Dream11.git
 		return wb;
 
 	}
