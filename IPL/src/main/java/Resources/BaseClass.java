@@ -22,6 +22,7 @@ public class BaseClass {
 		wb.manage().window().maximize();
 		System.out.println("Inilizing Driver");
 		System.out.println("New Commit...WorkSpace1");
+		System.out.println("New Commit...WorkSpace2");
 		return wb;
 
 	}
