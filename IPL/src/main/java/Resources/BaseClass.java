@@ -21,7 +21,7 @@ public class BaseClass {
 		WebDriver wb = new ChromeDriver();
 		wb.manage().window().maximize();
 		System.out.println("Inilizing Driver");
-		System.out.println("New Commit...WorkSpace");
+		System.out.println("New Commit1...WorkSpace");
 		return wb;
 
 	}
