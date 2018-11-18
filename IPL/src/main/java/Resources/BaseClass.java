@@ -24,6 +24,7 @@ public class BaseClass {
 		System.out.println("New Commit1...WorkSpace");
 		System.out.println("New Commit...WorkSpace1");
 		System.out.println("New Commit...WorkSpace2");
+		System.out.println("New branch...WorkSpace2");
 		return wb;
 
 	}
